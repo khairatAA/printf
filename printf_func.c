@@ -12,13 +12,14 @@
  */
 int _printf(const char *format, ...)
 {
-	int count, i, count_tmp;
+	int count, i, count_tmp, p;
 
 	i = 0;
 	count_tmp = 0;
 	count = 0;
-	va_list spec
+	va_list spec;
 	va_start(spec, format);
+	int (*f)(va_list);
 
 	if (format == NULL)
 		return (-1);
@@ -33,19 +34,7 @@ int _printf(const char *format, ...)
 		}
 		if (format[i] == '%')
 		{
-			p = get_spec_func(format[i + 1]);
-			/*chechking if end of file has been reached*/
-			/**
-			 *  if (p == '\0')
-			 *	break;
-			 *
-			 *if (p != '\0')
-			 *{
-			 *	count_tmp = write(1, &format[i], 1);
-			 *	count += count_tmp;
-			 *	i++;
-			 *}
-			 */
+			f = get_spec_func(format[i + 1]);
 		}
 	}
 

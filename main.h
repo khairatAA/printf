@@ -6,8 +6,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
 /* Function prototypes */
 int _printf(const char *format, ...);
+int (*get_spec_func(const char *format))(va_list);
+int print_char(va_list spec);
+int print_str(va_list spec);
+int print_percent(va_list spec);
+
 /* Structure defination */
 /**
  * struct spec - sturcture that contains the various specifier
