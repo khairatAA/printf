@@ -16,8 +16,7 @@ int _printf(const char *format, ...)
 
 	va_start(spec, format);
 	int (*f)(va_list);
-	int i = 0, count_tmp = 0;
-	int count = 0;
+	int i = 0, count_tmp = 0, count = 0;
 
 	if (format == NULL)
 		return (-1);
@@ -51,5 +50,6 @@ int _printf(const char *format, ...)
 				break;
 		}
 	}
+	va_end(spec);
 	return (count);
 }

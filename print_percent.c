@@ -8,5 +8,15 @@
  */
 int print_percent(va_list spec)
 {
-	return (0);
+	char percent = va_arg(spec, int);
+	int count;
+
+	count = 0;
+	if (percent)
+	{
+		count = write(1, "%", 1);
+		return (count);
+	}
+	else
+		return (0);
 }
