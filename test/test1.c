@@ -18,6 +18,7 @@ int main(void)
 	count_our_pf = _printf("Percent:[50%% !!!!!]\n");
 	printf("The total count printed on our printf is %d\n", count_our_pf);
 
+
 	write(1, "--------------------------------------------\n", 45);
 	write(1, "--------------------------------------------\n", 45);
 
@@ -28,6 +29,7 @@ int main(void)
 	write(1, "OUR PRINTF:\n", 12);
 	count_our_pf = _printf("String:[%s]\n", "I am a string !");
 	printf("The total count printed on our printf is %d\n", count_our_pf);
+
 
 	return (0);
 }
