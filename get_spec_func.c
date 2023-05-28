@@ -13,6 +13,7 @@ int (*get_spec_func(const char *format))(va_list)
 		{"c", print_char},
 		{"s", print_str},
 		{"%", print_percent},
+		{"d", print_signed_decimal},
 		{NULL, NULL}
 	};
 	int i;
