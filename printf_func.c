@@ -1,23 +1,21 @@
 #include "main.h"
 #include <stdarg.h>
-
 /**
  * _printf - produces output according to a format
  * @format: is a character string. The format string is
  * composed of zero or more directives.
  * @...: vardadic function
- *
  * Return: the number of characters printed (excluding
  * the null byte used to end output to strings)
  */
 int _printf(const char *format, ...)
 {
 	va_list spec;
+	int (*f)(va_list);
+	int i, count_tmp, count;
 
 	va_start(spec, format);
-	int (*f)(va_list);
-	int i = 0, count_tmp = 0, count = 0;
-
+	i = 0, count_tmp = 0, count = 0;
 	if (format == NULL)
 		return (-1);
 	while (format[i])
