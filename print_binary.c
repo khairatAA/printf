@@ -14,23 +14,32 @@ int print_binary(va_list spec)
 	int a[16];
 
 	count = 0;
-	b = va_arg(spec, int);
+	b = va_arg(spec, unsigned int);
 	if (b)
 	{
-		for (i = 0; b > 0; i++)
+		if (b == 0)
 		{
-			a[i] = b % 2;
-			b = b / 2;
-		}
-
-		while (i > 0)
-		{
-			write(1, &a[--i], 1);
+			write(1, "0", 1);
 			count++;
+		}
+		else
+		{
+			i = 0;
+			while (b > 0)
+			{
+				a[i++] = b % 2 + '0';
+				b = b / 2;
+			}
+			while (i > 0)
+			{
+				write(1, &a[--i], 1);
+				count++;
+			}
 		}
 		return (count);
 	}
 	else
+	{
 		return (0);
+	}
 }
-
