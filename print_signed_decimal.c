@@ -9,39 +9,42 @@
 int print_signed_decimal(va_list spec)
 {
 	int d = va_arg(spec, int);
-	int count, i;
+	int count = 0, i = 0, buffer_i = 0;
 	char dec_arr[12];
+	char buffer[1024];
 
-	count = 0;
 	if (d)
 	{
 		if (d < 0)
 		{
-			write(1, "-", 1);
-			d = -(d);
+			buffer[buffer_i++] = '-';
 			count++;
+			d = -(d);
 		}
 		if (d == 0)
 		{
-			write(1, "0", 1);
-			count++;
+			buffer[buffer_i++] = '0';
+			return (1);
 		}
-		else
+		while (d > 0)
 		{
-			i = 0;
-			while (d > 0)
-			{
-				dec_arr[i++] = d % 10 + '0';
-				d = d / 10;
-			}
+			dec_arr[i++] = d % 10 + '0';
+			d = d / 10;
 		}
 		while (i > 0)
 		{
-			write(1, &dec_arr[--i], 1);
+			buffer[buffer_i++] = dec_arr[--i];
 			count++;
+			if (buffer_i >= (int)sizeof(buffer))
+			{
+				write_buffer(buffer, buffer_i);
+				buffer_i = 0;
+			}
 		}
-		return (count);
 	}
 	else
 		return (0);
+	if (buffer_i > 0)
+		write_buffer(buffer, buffer_i);
+	return (count);
 }

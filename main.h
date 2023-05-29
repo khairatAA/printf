@@ -32,4 +32,8 @@ typedef struct spec
 	int (*f)(va_list);
 } spec;
 
+/* function to write into the buffer */
+
+int write_buffer(char *buffer, int len);
+
 #endif /* MAIN_H */

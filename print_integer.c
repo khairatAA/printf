@@ -36,7 +36,7 @@ int print_integer(va_list spec)
 			count++;
 			if (buffer_i >= (int)sizeof(buffer))
 			{
-				write(1, buffer, buffer_i);
+				write_buffer(buffer, buffer_i);
 				buffer_i = 0;
 			}
 		}
@@ -44,6 +44,6 @@ int print_integer(va_list spec)
 	else
 		return (0);
 	if (buffer_i > 0)
-		write(1, buffer, buffer_i);
+		write_buffer(buffer, buffer_i);
 	return (count);
 }
