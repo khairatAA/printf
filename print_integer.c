@@ -8,22 +8,24 @@
  */
 int print_integer(va_list spec)
 {
-	int i = va_arg(spec, int);
+	signed int i = va_arg(spec, signed int);
 	int count, j;
 	char int_arr[12];
+	char buffer[1024];
+	int buffer_i = 0;
 
 	count = 0;
 	if (i)
 	{
 		if (i < 0)
 		{
-			write(1, "-", 1);
+			buffer[buffer_i++] = '-';
 			count++;
 			i = -(i);
 		}
 		if (i == 0)
 		{
-			write(1, "0", 1);
+			buffer[buffer_i++] = '0';
 			return (1);
 		}
 		j = 0;
@@ -34,12 +36,20 @@ int print_integer(va_list spec)
 		}
 		while (j > 0)
 		{
-			write(1, &int_arr[--j], 1);
+			buffer[buffer_i++] = int_arr[--j];
 			count++;
+			if (buffer_i >= (int)sizeof(buffer))
+			{
+				write(1, buffer, buffer_i);
+				buffer_i = 0;
+			}
 		}
-		return (count);
 	}
 	else
+	{
 		return (0);
+	}
+	if (buffer_i > 0)
+		write(1, buffer, buffer_i);
+	return count;
 }
-
