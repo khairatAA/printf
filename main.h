@@ -20,6 +20,7 @@ int print_octal(va_list spec);
 int print_unsigned_decimal(va_list spec);
 int print_xhexadecimal(va_list spec);
 int print_Xhexadecimal(va_list spec);
+int print_special_str(va_list spec);
 
 /* Structure defination */
 /**

@@ -20,6 +20,7 @@ int (*get_spec_func(const char *format))(va_list)
 		{"u", print_unsigned_decimal},
 		{"x", print_xhexadecimal},
 		{"X", print_Xhexadecimal},
+		{"S", print_special_str},
 		{NULL, NULL}
 	};
 	int i;
