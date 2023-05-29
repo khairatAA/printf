@@ -19,6 +19,7 @@ int print_integer(va_list spec);
 int print_octal(va_list spec);
 int print_unsigned_decimal(va_list spec);
 int print_special_str(va_list spec);
+int print_address(va_list spec);
 
 /* Structure defination */
 /**
