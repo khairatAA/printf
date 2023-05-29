@@ -9,19 +9,21 @@
 
 int print_str(va_list spec)
 {
-	const char *s = va_arg(spec, char *);
-	int count;
+	const char *s = va_arg(spec, const char *);
+	int count, bytes_num;
 	int str_len;
 
 	count = 0;
-	if (s)
+	if (s != NULL)
 	{
 		str_len = 0;
 		while (s[str_len] != '\0')
 		{
 			str_len++;
 		}
-		count = write(1, s, str_len);
+		bytes_num = write(1, s, str_len);
+		if (bytes_num >= 0)
+			count = bytes_num;
 		return (count);
 	}
 	else
