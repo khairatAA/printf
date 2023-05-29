@@ -22,12 +22,13 @@ int main(void)
 	write(1, "--------------------------------------------\n", 45);
 	write(1, "--------------------------------------------\n", 45);
 
-	write(1, "NORMAL PRINTF:\n", 15);
-	count_pf = printf("String:[%s]\n", "I am a string !");
-	printf("The total count printed on printf is %d\n", count_pf);
+/**	write(1, "NORMAL PRINTF:\n", 15);
+ *	count_pf = printf("%b\n", 98);
+ *	printf("The total count printed on printf is %d\n", count_pf);
+ */
 	write(1, "--------------------------------------------\n", 45);
 	write(1, "OUR PRINTF:\n", 12);
-	count_our_pf = _printf("String:[%s]\n", "I am a string !");
+	count_our_pf = _printf("%b\n", 98);
 	printf("The total count printed on our printf is %d\n", count_our_pf);
 
 
