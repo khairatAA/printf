@@ -1,14 +1,13 @@
 #include "main.h"
 
 /**
- * print_binary -  prints a nbinary equivalentn of a decimal number
+ * print_octal -  prints a octal equivalent of a decimal number
  * @spec: varaidic argument
  * Return: return
  */
 
-
 int print_octal(va_list spec)
-{	
+{
 	unsigned int o;
 	int i, count;
 	int a[33];

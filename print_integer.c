@@ -9,12 +9,10 @@
 int print_integer(va_list spec)
 {
 	signed int i = va_arg(spec, signed int);
-	int count, j;
-	char int_arr[12];
-	char buffer[1024];
+	int count = 0, j = 0, buffer_i = 0;
+	char int_arr[12], buffer[1024];
 	int buffer_i = 0;
 
-	count = 0;
 	if (i)
 	{
 		if (i < 0)
@@ -28,7 +26,6 @@ int print_integer(va_list spec)
 			buffer[buffer_i++] = '0';
 			return (1);
 		}
-		j = 0;
 		while (i > 0)
 		{
 			int_arr[j++] = i % 10 + '0';
@@ -46,10 +43,8 @@ int print_integer(va_list spec)
 		}
 	}
 	else
-	{
 		return (0);
-	}
 	if (buffer_i > 0)
 		write(1, buffer, buffer_i);
-	return count;
+	return (count);
 }
