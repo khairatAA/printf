@@ -1,4 +1,6 @@
 #include "../main.h"
+#include <stdio.h>
+#include <unistd.h>
 
 /**
  * main - Entry point to test the printf function
@@ -11,42 +13,34 @@ int main(void)
 	int count_pf = 0;
 
 	write(1, "NORMAL PRINTF:\n", 15);
-	count_pf = printf("Negative:[%i]\n", -762534);
+	count_pf = printf("Character:[%c]%c\n", 't', 'R');
 	printf("The total count printed on printf is %d\n", count_pf);
 	write(1, "--------------------------------------------\n", 45);
 	write(1, "OUR PRINTF:\n", 12);
-	count_our_pf = _printf("Negative:[%i]\n", -762534);
+	count_our_pf = _printf("Character:[%c]%c\n", 't', 'R');
 	printf("The total count printed on our printf is %d\n", count_our_pf);
-
-
-	write(1, "--------------------------------------------\n", 45);
-	write(1, "--------------------------------------------\n", 45);
-	write(1, "OUR PRINTF:\n", 12);
-	count_our_pf = _printf("%b\n", 98);
-	printf("The total count printed on our printf is %d\n", count_our_pf);
+	write(1, "haste%d\n", 8);
 
 	write(1, "--------------------------------------------\n", 45);
 	write(1, "--------------------------------------------\n", 45);
 	write(1, "NORMAL PRINTF:\n", 15);
-	count_pf = printf("octal: %o\n", 98);
+	count_pf = printf("hexa: %x\n", 98);
 	printf("The total count printed on printf is %d\n", count_pf);
 
 	write(1, "--------------------------------------------\n", 45);
 	write(1, "OUR PRINTF:\n", 12);
-	count_our_pf = _printf("octal: %o\n", 98);
+	count_our_pf = _printf("hexa: %x\n", 98);
 	printf("The total count printed on our printf is %d\n", count_our_pf);
-
 	write(1, "--------------------------------------------\n", 45);
-	write(1, "--------------------------------------------\n", 45);
-	write(1, "OUR PRINTF:\n", 12);
-	count_our_pf = _printf("%u\n", -123);
-	count_our_pf = _printf("%u\n", 076);
-	printf("The total count printed on our printf is %d\n", count_our_pf);
-
 	write(1, "--------------------------------------------\n", 45);
 	write(1, "NORMAL PRINTF:\n", 15);
-	count_pf = printf("%u\n", -123);
-	count_pf = printf("%u\n", 076);
+	count_pf = printf("Hexa: %X\n", 9853);
 	printf("The total count printed on printf is %d\n", count_pf);
-	return (0);
+
+	write(1, "--------------------------------------------\n", 45);
+	write(1, "OUR PRINTF:\n", 12);
+	count_our_pf = _printf("Hexa: %X\n", 9853);
+	printf("The total count printed on our printf is %d\n", count_our_pf);
+	return (0);	
+
 }

@@ -1,25 +1,21 @@
 #include "main.h"
-
 /**
  * print_Xhexadecimal -  prints a hexadecimal equivalentn of a decimal number
  * @spec: varaidic argument
  * Return: return
  */
-
-
 int print_Xhexadecimal(va_list spec)
 {
-	unsigned int X;
-	int i, count, p;
+	unsigned int X = va_arg(spec, unsigned int);
+	int i = 0, count = 0, p = 0, buffer_i = 0;
 	int a[33];
+	char buffer[1024];
 
-	count = 0;
-	X = va_arg(spec, unsigned int);
 	if (X)
 	{
 		if (X == 0)
 		{
-			write(1, "0", 1);
+			buffer[buffer_i++] = '0';
 			count++;
 		}
 		else
@@ -36,14 +32,19 @@ int print_Xhexadecimal(va_list spec)
 			}
 			while (i > 0)
 			{
-				write(1, &a[--i], 1);
+				buffer[buffer_i++] = a[--i];
 				count++;
+				if (buffer_i >= (int)sizeof(buffer))
+				{
+					write_buffer(buffer, buffer_i);
+					buffer_i = 0;
+				}
 			}
 		}
-		return (count);
 	}
 	else
-	{
 		return (0);
-	}
+	if (buffer_i > 0)
+                write_buffer(buffer, buffer_i);
+        return (count);
 }
