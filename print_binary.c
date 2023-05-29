@@ -11,7 +11,7 @@ int print_binary(va_list spec)
 {
 	unsigned int b;
 	int i, count;
-	int a[16];
+	int a[33];
 
 	count = 0;
 	b = va_arg(spec, unsigned int);
