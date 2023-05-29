@@ -11,7 +11,6 @@ int print_integer(va_list spec)
 	signed int i = va_arg(spec, signed int);
 	int count = 0, j = 0, buffer_i = 0;
 	char int_arr[12], buffer[1024];
-	int buffer_i = 0;
 
 	if (i)
 	{
