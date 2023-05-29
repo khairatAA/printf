@@ -24,31 +24,50 @@ int main(void)
 	write(1, "OUR PRINTF:\n", 12);
 	count_our_pf = _printf("%b\n", 98);
 	printf("The total count printed on our printf is %d\n", count_our_pf);
-	
-	write(1, "--------------------------------------------\n", 45);
-	write(1, "--------------------------------------------\n", 45);
-        write(1, "NORMAL PRINTF:\n", 15);
-        count_pf = printf("octal: %o\n", 98);
-        printf("The total count printed on printf is %d\n", count_pf);
-
-        write(1, "--------------------------------------------\n", 45);
-        write(1, "OUR PRINTF:\n", 12);
-        count_our_pf = _printf("octal: %o\n", 98);
-        printf("The total count printed on our printf is %d\n", count_our_pf);
 
 	write(1, "--------------------------------------------\n", 45);
 	write(1, "--------------------------------------------\n", 45);
-        write(1, "OUR PRINTF:\n", 12);
-        count_our_pf = _printf("%u\n", -123);
-	count_our_pf = _printf("%u\n", 076);
-        printf("The total count printed on our printf is %d\n", count_our_pf);
-
-        write(1, "--------------------------------------------\n", 45);
-
 	write(1, "NORMAL PRINTF:\n", 15);
-	count_pf = printf("%u\n", -123);
-        count_pf = printf("%u\n", 076);
+	count_pf = printf("octal: %o\n", 98);
 	printf("The total count printed on printf is %d\n", count_pf);
 
+	write(1, "--------------------------------------------\n", 45);
+	write(1, "OUR PRINTF:\n", 12);
+	count_our_pf = _printf("octal: %o\n", 98);
+	printf("The total count printed on our printf is %d\n", count_our_pf);
+
+	write(1, "--------------------------------------------\n", 45);
+	write(1, "--------------------------------------------\n", 45);
+	write(1, "OUR PRINTF:\n", 12);
+	count_our_pf = _printf("%u\n", -123);
+	count_our_pf = _printf("%u\n", 076);
+	printf("The total count printed on our printf is %d\n", count_our_pf);
+
+	write(1, "--------------------------------------------\n", 45);
+	write(1, "NORMAL PRINTF:\n", 15);
+	count_pf = printf("%u\n", -123);
+	count_pf = printf("%u\n", 076);
+	printf("The total count printed on printf is %d\n", count_pf);
+	write(1, "--------------------------------------------\n", 45);
+	write(1, "--------------------------------------------\n", 45);
+	write(1, "NORMAL PRINTF:\n", 15);
+	count_pf = printf("hexa: %x\n", 98);
+	printf("The total count printed on printf is %d\n", count_pf);
+
+	write(1, "--------------------------------------------\n", 45);
+	write(1, "OUR PRINTF:\n", 12);
+	count_our_pf = _printf("hexa: %x\n", 98);
+	printf("The total count printed on our printf is %d\n", count_our_pf);
+
+	write(1, "--------------------------------------------\n", 45);
+	write(1, "--------------------------------------------\n", 45);
+	write(1, "NORMAL PRINTF:\n", 15);
+	count_pf = printf("Hexa: %X\n", 9853);
+	printf("The total count printed on printf is %d\n", count_pf);
+
+	write(1, "--------------------------------------------\n", 45);
+	write(1, "OUR PRINTF:\n", 12);
+	count_our_pf = _printf("Hexa: %X\n", 9853);
+	printf("The total count printed on our printf is %d\n", count_our_pf);
 	return (0);
 }

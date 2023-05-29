@@ -18,6 +18,8 @@ int (*get_spec_func(const char *format))(va_list)
 		{"i", print_integer},
 		{"o", print_octal},
 		{"u", print_unsigned_decimal},
+		{"x", print_xhexadecimal},
+		{"X", print_Xhexadecimal},
 		{NULL, NULL}
 	};
 	int i;
