@@ -36,5 +36,16 @@ int main(void)
 	count_our_pf = _printf("%b\n", 98);
 	printf("The total count printed on our printf is %d\n", count_our_pf);
 
+	write(1, "--------------------------------------------\n", 45);
+        write(1, "OUR PRINTF:\n", 12);
+        count_our_pf = _printf("octal: %o\n", 98);
+        printf("The total count printed on our printf is %d\n", count_our_pf);
+
+        write(1, "--------------------------------------------\n", 45);
+        write(1, "OUR PRINTF:\n", 12);
+        count_our_pf = _printf("octal: %o\n", 98);
+        printf("The total count printed on our printf is %d\n", count_our_pf);
+
+
 	return (0);
 }

@@ -16,6 +16,7 @@ int (*get_spec_func(const char *format))(va_list)
 		{"b", print_binary},
 		{"d", print_signed_decimal},
 		{"i", print_integer},
+		{"o", print_octal},
 		{NULL, NULL}
 	};
 	int i;
