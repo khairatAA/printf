@@ -15,6 +15,7 @@ int print_str(va_list spec);
 int print_percent(va_list spec);
 int print_binary(va_list spec);
 int print_signed_decimal(va_list spec);
+int print_integer(va_list spec);
 
 /* Structure defination */
 /**
