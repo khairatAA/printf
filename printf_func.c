@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	va_list spec;
-	int (*f)(va_list);
+	/* int (*f)(va_list); */
 	int i, count_tmp, count;
 
 	va_start(spec, format);
@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 		}
 		if (format[i] == '%')
 		{
-			f = get_spec_func(&format[i + 1]);
+			int(*f)(va_list) = get_spec_func(&format[i + 1]);
 			if (f != NULL)
 			{
 				count_tmp = f(spec);
