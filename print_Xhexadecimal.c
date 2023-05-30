@@ -34,7 +34,7 @@ int print_Xhexadecimal(va_list spec)
 			{
 				buffer[buffer_i++] = a[--i];
 				count++;
-				if (buffer_i >= (int)sizeof(buffer))
+				if (buffer_i >= (int)(sizeof(buffer) - 1))
 				{
 					write_buffer(buffer, buffer_i);
 					buffer_i = 0;

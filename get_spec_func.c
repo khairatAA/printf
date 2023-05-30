@@ -21,7 +21,7 @@ int (*get_spec_func(const char *format))(va_list)
 		{"x", print_xhexadecimal},
 		{"X", print_Xhexadecimal},
 		{"S", print_special_str},
-		{"p", printf_address},
+		{"p", print_address},
 		{NULL, NULL}
 	};
 	int i;
