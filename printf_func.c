@@ -11,11 +11,10 @@
 int _printf(const char *format, ...)
 {
 	va_list spec;
-	int i, count_tmp, count, handle_plus, buffer_i;
-	char buffer[1024];
+	int i, count_tmp, count;
 
 	va_start(spec, format);
-	i = 0, count_tmp = 0, count = 0, buffer_i = 0;
+	i = 0, count_tmp = 0, count = 0;
 	if (format == NULL)
 		return (-1);
 	while (format[i])
@@ -38,17 +37,6 @@ int _printf(const char *format, ...)
 				i += 2;
 				continue;
 			}
-			else if (format[i + 1] == '+')
-			{
-				handle_plus = va_arg(spec, int);
-				if (handle_plus >= 0)
-				{
-					buffer[buffer_i++] = '+';
-					count++;
-				}
-				i = i + 2;
-				continue;
-			}
 			if (format[i + 1] != '\0')
 			{
 				count_tmp = write(1, &format[i], 1);
@@ -61,10 +49,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(spec);
-	if (buffer_i > 0)
-	{
-		count_tmp = write_buffer(buffer, buffer_i);
-		count += count_tmp;
-	}
 	return (count);
 }
